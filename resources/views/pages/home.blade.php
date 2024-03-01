@@ -1,8 +1,11 @@
 @extends("layouts.site.app")
 @section("title", "Inicial - Site Karamba")
 @section("content")
-  @include("components.navbar")
-    <!-- ======= Hero Section ======= -->
+@include("components.style")
+@include("components.navbar")
+    <!-- ======= Hero Section 
+      style="background: var(--color)"
+      ======= -->
     <section id="hero" class="hero d-flex align-items-center section-bg">
         <div class="container">
           @foreach ($hero as $item)
@@ -34,9 +37,11 @@
         <div class="row gy-4">
           @foreach ($info as $item)
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="why-box text-dark">
-              <h3>{{$item->title}}</h3>
-              <p>
+            <div class="why-box text-dark" style="background: var(--color);">
+              <h3 style="color: var(--letra);">
+                {{$item->title}}
+              </h3>
+              <p style="color: var(--letra);">
                 {{$item->description}}
               </p>
               <div class="text-center">
@@ -51,10 +56,13 @@
               @foreach ($details as $item)
                 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-person-circle"></i>
-                  <h4>{{$item->title}}</h4>
-                  <p>{{$item->description}}</p>
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center detalhes">
+                  <h4 style="color: var(--color);">
+                    {{$item->title}}
+                  </h4>
+                  <p style="color: var(--color);">
+                    {{$item->description}}
+                  </p>
                 </div>
               </div><!-- End Icon Box -->
 
@@ -107,5 +115,24 @@
     @include("components.contact")
   </main>
 <!-- End main -->
+
+<div class="container-fluid mb-2">
+  <div class="container position-relative">
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        @foreach ($Horizontal as $item)
+        <div class="carousel-item active">
+            <a href="{{$item->link}}" target="_blank">
+              <div style="width: 100%">
+                <img src="{{url("/storage/{$item->image}")}}" alt="" style="width:100%">
+                <div style="position: absolute; top:5px; width:10px; height: 10px; right:28px;"><i class="bi bi-info-circle-fill cursor-pointer" style="color: #ffffff" title="Está Publicidade é de inteira responsabilidade da Fort-Code"></i></div>
+              </div>
+            </a>
+          </div>
+          @endforeach
+      </div>
+    </div>
+  </div>
+</div>
   @include("components.footer")
 @endsection

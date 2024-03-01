@@ -1,7 +1,8 @@
 @extends("layouts.site.app")
 @section("title" , "Produtos Karamba")
 @section("content")
-    @include("components.navbar")
+@include("components.navbar")
+@include("components.style")
     <main id="main" class="mt-5">
         <!-- ======= Menu Section ======= -->
           <section id="menu" class="menu">
@@ -33,8 +34,6 @@
               </ul>
       
               <div class="tab-content" data-aos="fade-up" data-aos-delay="300">
-      
-      
       
                 <div class="tab-pane fade active show" id="menu-breakfast">
       
