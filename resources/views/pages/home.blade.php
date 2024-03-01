@@ -1,8 +1,11 @@
 @extends("layouts.site.app")
 @section("title", "Inicial - Site Karamba")
 @section("content")
-  @include("components.navbar")
-    <!-- ======= Hero Section ======= -->
+@include("components.style")
+@include("components.navbar")
+    <!-- ======= Hero Section 
+      style="background: var(--color)"
+      ======= -->
     <section id="hero" class="hero d-flex align-items-center section-bg">
         <div class="container">
           @foreach ($hero as $item)
@@ -34,9 +37,11 @@
         <div class="row gy-4">
           @foreach ($info as $item)
           <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="why-box text-dark">
-              <h3>{{$item->title}}</h3>
-              <p>
+            <div class="why-box text-dark" style="background: var(--color);">
+              <h3 style="color: var(--letra);">
+                {{$item->title}}
+              </h3>
+              <p style="color: var(--letra);">
                 {{$item->description}}
               </p>
               <div class="text-center">
@@ -51,10 +56,13 @@
               @foreach ($details as $item)
                 
               <div class="col-xl-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon-box d-flex flex-column justify-content-center align-items-center">
-                  <i class="bi bi-person-circle"></i>
-                  <h4>{{$item->title}}</h4>
-                  <p>{{$item->description}}</p>
+                <div class="icon-box d-flex flex-column justify-content-center align-items-center detalhes">
+                  <h4 style="color: var(--color);">
+                    {{$item->title}}
+                  </h4>
+                  <p style="color: var(--color);">
+                    {{$item->description}}
+                  </p>
                 </div>
               </div><!-- End Icon Box -->
 

@@ -22,6 +22,10 @@ class ApiController extends Controller
                         
         $data = DB::select($SQL);
 
+        if ($data) {
+            
+        }
+
            return response()->json($data);
 
         }else{

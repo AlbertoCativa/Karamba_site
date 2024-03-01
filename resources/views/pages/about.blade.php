@@ -1,8 +1,9 @@
 @extends("layouts.site.app")
 @section("title", "Saiba Sobre o Karamba")
 @section("content")
+@include("components.style")
     @include("components.navbar")
-          <!-- main -->
+    <!-- main -->
   <main id="main" class="mt-5">
 
     <!-- ======= About Section ======= -->
@@ -11,13 +12,13 @@
 
         <div class="d-flex">
           <div>
-            <div class="section-header" style="margin-left: -50rem;">
-              <h2>Quem Somos</h2>
+            <div class="col-sm-12 section-header d-flex justify-content-md-start justify-content-sm-center">
+              {{-- <h2>Quem Somos</h2> --}}
               <p>Quem Somos</p>
             </div>
     
             <div class="row gy-4">
-              <div class="col-lg-7 position-relative about-img" style="background-image: url(site/assets/img/about.jpg); background-size: cover; background-position: center;" data-aos="fade-up" data-aos-delay="150">
+              <div class="col-lg-7 position-relative about-img" data-aos="fade-up" data-aos-delay="150">
                 <div class="call-us position-absolute">
                   <a href="https://kytutes.com/" target="_blank" class="btn reservas">Fazer Reservas</a>
                 </div>
@@ -39,8 +40,7 @@
                  </p>
                   
                   <div class="position-relative mt-4">
-                    <img src="site/assets/img/about1.jpg" class="img-fluid" alt="">
-                    <a href="" class="glightbox play-btn"></a>
+                    <img src="{{url("/storage/$fundo->image" ?? "")}}" class="img-fluid" alt="">
                   </div>
                 </div>
                 @endforeach

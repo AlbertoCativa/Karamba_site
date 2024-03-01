@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use App\Models\Anuncio;
+use App\Models\Color;
 use App\Models\contact;
 use App\Models\Detail;
+use App\Models\Fundo;
 use App\Models\hero;
 use App\Models\infowhy;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
@@ -28,9 +31,7 @@ class AdminController extends Controller
     }
 
     public function registerdatas(Request $request){
-        try {
-            //code...
-            
+        try {      
         $data = new hero();
 
         $data->title = $request->title;
@@ -211,6 +212,79 @@ class AdminController extends Controller
             "id" => $request->id,
         ]);
         return redirect()->back()->with("success", "Sobre Actualizado");
+    }
+
+    //Alteração de cores nos websites
+    public function colorview(){
+        $colors = Color::all();
+        return view("sbadmin.color", compact("colors"));
+    }
+
+    public function storecolor(Request $request){
+        try {
+            $countSelectColor = Color::count();
+
+            if (isset($countSelectColor) and $countSelectColor > 0) {
+                $selectColor = Color::first();
+                $selectColor->codigo = $request->codigo;
+                $selectColor->letra = $request->letra;
+                $selectColor->save();
+                
+            } else {
+                $color = new Color();
+                $color->codigo = $request->codigo;
+                $color->letra = $request->letra;
+                $color->save();
+            }
+
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            
+        }
+    }
+
+    //imagens de funddo
+    public function imagebackground(){
+        $fundo = Fundo::get();
+        return view("sbadmin.fundo", ["fundo" => $fundo]);
+    }
+
+    public function imageactualizar(Request $request){
+        $fundo = Fundo::find($request->id);
+
+        if ($request->hasFile("image")) {
+            //$destinationPath = "public/image";
+            $image = $request->file("image");
+            //$imageName = $image->getClientOriginalName(); 
+            $path = $request->file("image")->store("uploads/fundo"); //podes meter uploads/retangulo ou quadrado
+
+            $fundo->image = $path;
+        }
+        $fundo->save();
+        return redirect()->back();
+    }
+
+    public function imagebackgroundstore(Request $request){
+        try {
+            $fundo = new Fundo();
+
+            $fundo->tipo = $request->tipo;
+
+            if ($request->hasFile("image")) {
+                //$destinationPath = "public/image";
+                $image = $request->file("image");
+                //$imageName = $image->getClientOriginalName(); 
+                $path = $request->file("image")->store("uploads/fundo"); //podes meter uploads/retangulo ou quadrado
+    
+                $fundo->image = $path;
+            }
+            $fundo->save();
+
+            return redirect()->back();
+
+        } catch (\Throwable $th) {
+            //throw $th;
+        }
     }
 
     //Possivel Venda de Bilhetes

@@ -24,7 +24,7 @@
                             <!-- Card Body -->
                             <div class="card-body ">
                                <div class="col-xl-12 d-flex">
-                                    <div class="col-xl-6">
+                                    <div class="col-xl-6" style="{{count($infos) >= 1 ? "display: none" : ""}}">
                                         <form action="{{route("store.infowhy")}}" method="post" enctype="multipart/form-data">
                                             @csrf
                                             <div class="form-group">

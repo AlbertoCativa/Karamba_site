@@ -1,6 +1,6 @@
   
   <!-- Footer -->
-  <footer id="footer" class="footer">
+  <footer id="footer" class="footer" style="background: var(--color); color: var(--letra);">
 
     <div class="container">
       @foreach ($contact as $item)

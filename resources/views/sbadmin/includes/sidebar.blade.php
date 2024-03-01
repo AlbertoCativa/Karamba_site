@@ -80,6 +80,22 @@
         </a>
     </li>
     
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item {{Route::current()->getName() == "anuncio.management.view.color" ? "bg-white" : ""}}">
+        <a class="nav-link {{Route::current()->getName() == "anuncio.management.view.color" ? "text-primary" : ""}}" href="{{route("anuncio.management.view.color")}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Cores</span>
+        </a>
+    </li>
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item {{Route::current()->getName() == "anuncio.management.view.fundo" ? "bg-white" : ""}}">
+        <a class="nav-link {{Route::current()->getName() == "anuncio.management.view.fundo" ? "text-primary" : ""}}" href="{{route("anuncio.management.view.fundo")}}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Imagens de Fundo</span>
+        </a>
+    </li>
+    
     <!-- Divider -->
     <hr class="sidebar-divider d-none d-md-block">
 

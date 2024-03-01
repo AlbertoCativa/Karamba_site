@@ -1,17 +1,17 @@
  <!-- ======= Contact Section ======= -->
- <section id="contact" class="contact">
+ <section id="contact" class="contact" style="">
   <div class="section-header">
     <h2>Contacto</h2>
     <p>Precisa de ajuda <span>Contacte-nos</span></p>
   </div>
-    <div class="container " data-aos="fade-up">
+    <div class="container" data-aos="fade-up">
   
         @foreach ($contact as $item)
           <div class="row gy-4">
   
             <div class="col-md-6">
               <div class="info-item  d-flex align-items-center">
-                <i class="icon bi bi-map flex-shrink-0"></i>
+                <i class="icon bi bi-map flex-shrink-0" style="background: var(--color); color: var(--letra)"></i>
                 <div>
                   <h3>Endereço</h3>
                   <div>{{$item->endereco}}</div>
@@ -21,7 +21,7 @@
   
             <div class="col-md-6">
               <div class="info-item d-flex align-items-center justify-content-center">
-                <i class="icon bi bi-envelope flex-shrink-0"></i>
+                <i class="icon bi bi-envelope flex-shrink-0" style="background: var(--color); color: var(--letra)"></i>
                 <div>
                   <h3>Email</h3>
                   <div>{{$item->email}}</div>
@@ -31,7 +31,7 @@
   
             <div class="col-md-6">
               <div class="info-item  d-flex align-items-center">
-                <i class="icon bi bi-telephone flex-shrink-0"></i>
+                <i class="icon bi bi-telephone flex-shrink-0" style="background: var(--color); color: var(--letra)"></i>
                 <div>
                   <h3>Telefone</h3>
                   <div>+244 {{$item->telefone}}</div>
@@ -41,7 +41,7 @@
   
             <div class="col-md-6">
               <div class="info-item  d-flex align-items-center">
-                <i class="icon bi bi-share flex-shrink-0"></i>
+                <i class="icon bi bi-share flex-shrink-0" style="background: var(--color); color: var(--letra)"></i>
                 <div>
                   <h3>Atendimento</h3>
                   <div>
@@ -71,7 +71,9 @@
               <div class="form-group">
                 <textarea class="form-control" name="message" rows="5" placeholder="Mensagem ...." required></textarea>
               </div>
-              <div class="text-center"><button type="submit">Enviar</button></div>
+              <div class="text-center">
+                <button style="background: var(--color);" type="submit">Enviar</button>
+              </div>
             </form><!--End Contact Form -->
           </div>
     

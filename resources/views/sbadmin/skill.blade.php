@@ -23,7 +23,7 @@
                             </div>
                             <!-- Card Body -->
                             <div class="card-body d-flex">
-                                <div class="col-xl-6">
+                                <div class="col-xl-6" style=" {{count($infos) == 3 ? "display: none" : ""}}">
                                     <form action="{{route("admin.store.detail")}}" method="post">
                                         @csrf
                                         <div class="form-group">
@@ -43,9 +43,9 @@
                                 </div>
 
                                 <div class="col-xl-6 mt-4">
-                                    <label class="form-label">Skill:</label>
+                                    <label class="form-label">Detalhes: </label>
                                     @foreach ($infos as $item)
-                                        <div class="form-group">
+                                        <div class="form-group mt-2">
                                             <div>
                                                 <h5>{{$item->title}}</h5>
                                             </div>
@@ -56,7 +56,7 @@
 
                                             
                                         </div> 
-                                        <div>
+                                        <div class="mt-2">
                                             <button class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop{{$item->id}}">Editar</button>
                                             @include("sbadmin.includes.modal.skill")
                                         </div> 

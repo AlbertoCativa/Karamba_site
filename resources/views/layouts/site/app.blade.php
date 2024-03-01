@@ -26,7 +26,6 @@
   <link href="{{asset("site/assets/css/main.css")}}" rel="stylesheet">
 
 </head>
-
 <body>
 
     @yield("content")
